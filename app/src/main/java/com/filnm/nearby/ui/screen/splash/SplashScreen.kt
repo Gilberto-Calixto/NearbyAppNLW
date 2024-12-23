@@ -19,46 +19,30 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.filnm.nearby.R
 import com.filnm.nearby.ui.theme.Gray600
+import com.filnm.nearby.ui.theme.GreenExtraLight
+import com.filnm.nearby.ui.theme.GreenLight
 
 @Composable
-fun SplashScreen(modifier: Modifier = Modifier, wellcomeScreen: () -> Unit = {}) {
+fun SplashScreen(modifier: Modifier = Modifier) {
 
     Box(
-        modifier = Modifier
-            .background(Gray600)
+        modifier = modifier
+            .background(GreenExtraLight)
             .fillMaxSize()
     ) {
 
         Image(
-            modifier = modifier
-                .align(Alignment.TopCenter)
-                .height(60.dp)
-                .padding(top = 20.dp),
-            painter = painterResource(R.drawable.ic_launcher_background),
-            contentDescription = "Logo",
+            modifier = Modifier.align(Alignment.Center),
+            painter = painterResource(id = R.drawable.img_logo_logo_logo_text),
+            contentDescription = "Imagem da logo"
         )
-
-        Spacer(modifier = Modifier.height(40.dp))
-
 
         Image(
-            modifier = modifier.align(Alignment.Center),
-            painter = painterResource(R.drawable.ic_launcher_background),
-            contentDescription = "Logo"
+            modifier = Modifier.align(Alignment.BottomCenter),
+            painter = painterResource(id = R.drawable.bg_splash_screen),
+            contentDescription = "Imagem do fundo"
         )
 
-        Button(
-            onClick = { wellcomeScreen }
-        ) { }
-
-        Text(
-           text = "Nearby",
-            style = MaterialTheme.typography.bodyLarge,
-            color = Color.Green,
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(bottom = 50.dp)
-        )
     }
 
 }
