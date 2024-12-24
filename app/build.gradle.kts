@@ -59,4 +59,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.maps.compose)
+    implementation(libs.coil.compose)
+
 }

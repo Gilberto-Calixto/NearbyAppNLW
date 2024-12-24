@@ -17,7 +17,7 @@ import com.filnm.nearby.ui.theme.Typography
 fun NearbyMarketCardList(
     modifier: Modifier = Modifier,
     markets: List<Market>,
-    onClick: (Market) -> Unit
+    onMarketClick: (Market) -> Unit
 ) {
 
     LazyColumn(
@@ -35,7 +35,7 @@ fun NearbyMarketCardList(
         items(items = markets, key = {it.id}) { market ->
             NearbyMarketCard(
                 market = market,
-                onClick = { onClick(it)}
+                onClick = { onMarketClick(it)}
             )
         }
     }
@@ -47,6 +47,6 @@ fun NearbyMarketCardList(
 private fun NearbyMarketCardListPrev() {
     NearbyMarketCardList(
         markets = mockMarkets,
-        onClick = {}
+        onMarketClick = {}
     )
 }
