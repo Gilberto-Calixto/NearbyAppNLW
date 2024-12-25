@@ -66,4 +66,7 @@ dependencies {
     implementation(libs.navigation.compose)
     implementation(libs.kotlin.serialization)
 
+    implementation(platform(libs.ktor.bom))
+    implementation(libs.bundles.ktor)
+
 }
