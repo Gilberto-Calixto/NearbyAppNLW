@@ -3,7 +3,7 @@ package com.filnm.nearby.data.model
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Market(
+data class Marketdetails(
     val id: String,
     val categoryId: String,
     val name: String,

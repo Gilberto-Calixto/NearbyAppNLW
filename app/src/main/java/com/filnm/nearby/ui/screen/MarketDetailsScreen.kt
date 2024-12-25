@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -30,11 +31,13 @@ import com.filnm.nearby.data.model.mock.mockMarkets
 import com.filnm.nearby.ui.components.button.NearbyButton
 import com.filnm.nearby.ui.components.market_details.MarketDetaailsCoupons
 import com.filnm.nearby.ui.components.market_details.MarketDetailsInfos
-import com.filnm.nearby.ui.components.market_details.MarketDetailsRules
 import com.filnm.nearby.ui.theme.Typography
 
 @Composable
-fun MarketDetailsScreen(modifier: Modifier = Modifier, market: Market) {
+fun MarketDetailsScreen(
+    modifier: Modifier = Modifier, market: Market,
+    onNavigationBack: () -> Unit
+) {
     Box(
         modifier = modifier.fillMaxSize()
     ) {
@@ -84,14 +87,14 @@ fun MarketDetailsScreen(modifier: Modifier = Modifier, market: Market) {
                         .padding(vertical = 24.dp)
                     )
 
-                    if (market.rules.isNotEmpty()) {
+                    /*if (market.rules.isNotEmpty()) {
                         MarketDetailsRules(rules = market.rules)
                         HorizontalDivider(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(vertical = 24.dp)
                         )
-                    }
+                    }*/
 
                     MarketDetaailsCoupons(coupons = listOf("ABR372", "BBR373"))
                 }
@@ -101,16 +104,25 @@ fun MarketDetailsScreen(modifier: Modifier = Modifier, market: Market) {
                         .fillMaxWidth()
                         .padding(top = 24.dp),
                     text = "Ler QR Code",
-                    onClick = {}
+                    onClick = {  }
                 )
             }
         }
+
+        NearbyButton(
+            modifier = Modifier.align(Alignment.TopStart).padding(24.dp),
+            icon = R.drawable.ic_arrow_left,
+            onClick = { onNavigationBack() }
+        )
     }
 }
 
 @Preview
 @Composable
 private fun MarketDetailsScreenPrev() {
-    MarketDetailsScreen(market = mockMarkets.firstOrNull() ?: mockMarkets.first())
+    MarketDetailsScreen(
+        market = mockMarkets.firstOrNull() ?: mockMarkets.first(),
+        onNavigationBack = { }
+    )
 
 }

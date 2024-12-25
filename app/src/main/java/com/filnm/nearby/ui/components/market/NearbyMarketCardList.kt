@@ -21,7 +21,6 @@ fun NearbyMarketCardList(
 ) {
 
     LazyColumn(
-        modifier = Modifier,
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
 

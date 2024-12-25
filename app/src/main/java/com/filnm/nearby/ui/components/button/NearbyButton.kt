@@ -35,7 +35,7 @@ fun NearbyButton( // O que esse componente vai ter?
             contentPadding = if (text == null && icon != null) PaddingValues(0.dp)
                 else ButtonDefaults.ContentPadding, //Tira o preenchimento desnecessário
             colors = ButtonDefaults.buttonColors(containerColor = GreenBase),
-            onClick = { onClick }
+            onClick = { onClick() }
         ) {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp), //Espaçamento horizontal

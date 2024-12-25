@@ -31,7 +31,8 @@ import com.filnm.nearby.ui.theme.Typography
 
 @Composable
 fun WellcomeScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onNavigationToHome: () -> Unit
 ) {
 
     Column(
@@ -47,7 +48,7 @@ fun WellcomeScreen(
         NearbyButton(
             modifier = Modifier.fillMaxWidth(),
             text = "Começar",
-            onClick = { }
+            onClick = { onNavigationToHome() }
         )
     }
 }
@@ -55,5 +56,5 @@ fun WellcomeScreen(
 @Preview
 @Composable
 private fun WellcomeScreenPreview() {
-    WellcomeScreen()
+    WellcomeScreen( onNavigationToHome = { })
 }
