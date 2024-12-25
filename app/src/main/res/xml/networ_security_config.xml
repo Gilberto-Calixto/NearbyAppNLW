@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-securityconfig>
+    <domainconfig cleartextTrafficPermitted = "true">
+        <domain incluedSubdomains="true">10.0.2.2</domain>
+    </domainconfig>
+</network-securityconfig>

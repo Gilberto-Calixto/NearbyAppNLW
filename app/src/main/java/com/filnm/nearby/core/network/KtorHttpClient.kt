@@ -11,7 +11,7 @@ import kotlinx.serialization.json.Json
 
 object KtorHttpClient {
 
-    private const val NETWORK_TIMEOUT = 5_000L
+    private const val NETWORK_TIMEOUT = 5_000L // 5 segundos
 
     val httpClientAndroid by lazy {
         HttpClient(Android) {
