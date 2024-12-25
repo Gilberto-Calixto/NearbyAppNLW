@@ -10,7 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.filnm.nearby.data.model.Market
 import com.filnm.nearby.ui.screen.HomeScreen.HomeScreen
-import com.filnm.nearby.ui.screen.MarketDetailsScreen
+import com.filnm.nearby.ui.screen.marketDetails.MarketDetailsScreen
 import com.filnm.nearby.ui.screen.route.Home
 import com.filnm.nearby.ui.screen.route.Splash
 import com.filnm.nearby.ui.screen.route.Wellcome
