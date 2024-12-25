@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class MarketDetailsViewModel: ViewModel() {
-    private val _UiState = MutableStateFlow(MarketDetailsUiState())
-    val uiState: StateFlow<MarketDetailsUiState> = _UiState.asStateFlow()
+    private val _uiState = MutableStateFlow(MarketDetailsUiState())
+    val uiState: StateFlow<MarketDetailsUiState> = _uiState.asStateFlow()
 
 
     fun onEvent(event: MarketDetailsUiEvent) {
@@ -26,14 +26,14 @@ class MarketDetailsViewModel: ViewModel() {
     private fun fetchCoupon(qrCodeContent: String) = viewModelScope.launch{
         RemoteDataSource.patchCoupon(marketId = qrCodeContent)
             .onSuccess { coupon ->
-                _UiState.update { currentUiState ->
+                _uiState.update { currentUiState ->
                     currentUiState.copy(
                         coupon = coupon.coupon
                     )
                 }
             }
             .onSuccess {
-                _UiState.update { currentUiState ->
+                _uiState.update { currentUiState ->
                     currentUiState.copy(coupon = "")
                 }
             }
@@ -42,12 +42,12 @@ class MarketDetailsViewModel: ViewModel() {
     private fun fetchRules(marketId: String) = viewModelScope.launch{
         RemoteDataSource.getMarketDetails(marketId = marketId)
             .onSuccess { marketDetails ->
-                _UiState.update { currentUiState ->
+                _uiState.update { currentUiState ->
                     currentUiState.copy( rules = marketDetails.rules)
                 }
             }
             .onFailure {
-                _UiState.update { currentUiState ->
+                _uiState.update { currentUiState ->
                     currentUiState.copy(
                         rules = emptyList()
                     )
@@ -56,7 +56,7 @@ class MarketDetailsViewModel: ViewModel() {
     }
 
     private fun resetCoupon() {
-        _UiState.update { currentUiState ->
+        _uiState.update { currentUiState ->
             currentUiState.copy(
                 coupon = null
             )
