@@ -4,12 +4,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.filnm.nearby.data.model.Market
 import com.filnm.nearby.ui.screen.HomeScreen.HomeScreen
+import com.filnm.nearby.ui.screen.HomeScreen.HomeViewModel
 import com.filnm.nearby.ui.screen.marketDetails.MarketDetailsScreen
 import com.filnm.nearby.ui.screen.route.Home
 import com.filnm.nearby.ui.screen.route.Splash
@@ -24,6 +29,9 @@ import com.filnm.nearby.ui.theme.NearbyTheme
         enableEdgeToEdge()
         setContent {
             NearbyTheme {
+
+                val homeViewModel by viewModels<HomeViewModel>()
+                val homeUiState by homeViewModel.uiState.collectAsStateWithLifecycle()
 
                 val navController = rememberNavController()
                 NavHost( // Componente que vai controlar a navegação
@@ -46,7 +54,9 @@ import com.filnm.nearby.ui.theme.NearbyTheme
                         HomeScreen(
                             onNavigationToMarketDetails = { selectedMarket ->
                                 navController.navigate(selectedMarket)
-                            }
+                            },
+                            uiState = homeUiState ,
+                            onEvent = homeViewModel::onEvent
                         )
                     }
                     composable<Market>{

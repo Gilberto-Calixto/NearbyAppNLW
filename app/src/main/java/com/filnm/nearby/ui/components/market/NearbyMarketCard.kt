@@ -27,6 +27,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.compose.AsyncImage
 import com.filnm.nearby.R
 import com.filnm.nearby.data.model.Market
 import com.filnm.nearby.ui.theme.Gray100
@@ -60,14 +61,14 @@ fun NearbyMarketCard(
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
 
-            Image(
+            AsyncImage(
                 modifier = Modifier
                     .clip(RoundedCornerShape(12.dp))
                     .fillMaxWidth(0.3f)
                     .height(IntrinsicSize.Min)
                     .aspectRatio(ratio = 1f, matchHeightConstraintsFirst = true),
                 contentScale = ContentScale.Crop,
-                painter = painterResource(R.drawable.img_burger),
+                model = market.cover,
                 contentDescription = "Imagem do estabelecimento"
             )
 

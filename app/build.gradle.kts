@@ -69,4 +69,7 @@ dependencies {
     implementation(platform(libs.ktor.bom))
     implementation(libs.bundles.ktor)
 
+    implementation(libs.coil.network.okhttp)
+
+
 }
