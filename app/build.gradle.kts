@@ -71,5 +71,8 @@ dependencies {
 
     implementation(libs.coil.network.okhttp)
 
+    implementation(libs.zxing)
+    implementation(libs.zxing.android.embedded)
+
 
 }

@@ -11,8 +11,9 @@ import io.ktor.client.request.patch
 object RemoteDataSource { //EndPoints
 
     private const val LOCAL_HOST_EMULATOR_BASE_URL = "http://10.0.2.2:33333"
+    private const val LOCAL_HOST_PHYSICAL_BASE_URL = "http://192.168.1.3:33333"
 
-    private const val BASE_URL = LOCAL_HOST_EMULATOR_BASE_URL
+    private const val BASE_URL = LOCAL_HOST_PHYSICAL_BASE_URL
 
     //1#Buscar categorias
     suspend fun getCategories(): Result<List<NearbyCategory>> =

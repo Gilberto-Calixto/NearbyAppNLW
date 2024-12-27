@@ -10,3 +10,6 @@ data object Wellcome
 
 @Serializable
 data object Home
+
+@Serializable
+data object QRCodeScanner
